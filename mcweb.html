@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magma client</title>
+    <link rel="stylesheet" href="magma.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Magma<span>client</span></div>
+        
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav class="nav-menu" id="navMenu">
+            <a href="#" class="nav-link active" data-target="home-view">Home</a>
+            <a href="#" class="nav-link" data-target="features-view">Features</a>
+            <a href="#" class="nav-link" data-target="about-view">About</a>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        
+        <section id="home-view" class="view-section active">
+            <div class="hero-content">
+                <h1 class="hero-title">Ignite Your <span>Minecraft</span> Experience</h1>
+                <p class="hero-subtitle">A client which can increase your fps, and adds many QOL mods </p>
+                <div class="cta-container">
+                    <a href="file:///home/heheboi/Documents/GitHub/PyVirus/filename.">
+                    <button class="btn-download" onclick="">Download </button>
+                    </a>
+                    <span class="version-tag"></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="features-view" class="view-section">
+            <h2 class="section-title">Engineered for <span>Performance</span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="card-icon">  </div>
+                    <h3>Blazing Fast Boot</h3>
+                    <p>Optimized launch sequencing gets you past loading screens and into the game up to 40% faster.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon"></div>
+                    <h3>Native Mod Management</h3>
+                    <p>One-click dependency resolution for CurseForge and Modrinth instances directly inside the client.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon"></div>
+                    <h3>Optimization mods</h3>
+                    <p>Uses optimization mods like sodium, Lithium and phosphor.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-view" class="view-section">
+            <div class="about-container">
+                <h2 class="section-title">About <span>Magma</span></h2>
+                <p class="about-text">Magma launcher was created for one purpose. To make the gameplay smoother and better.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; </p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.view-section');
+
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                
+                navLinks.forEach(l => l.classList.remove('active'));
+                
+                sections.forEach(s => s.classList.remove('active'));
+
+                
+                link.classList.add('active');
+                const targetId = link.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+
+                
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
